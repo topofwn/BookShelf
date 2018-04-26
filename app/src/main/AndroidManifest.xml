@@ -16,12 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".HomeActivity"></activity>
-=======
+
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity"></activity>
->>>>>>> 7b046563a27be6eb33c27b196d01cf6e0fbc5e97
-    </application>
+
+ </application>
 
 </manifest>
