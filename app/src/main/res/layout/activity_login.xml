@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".LoginActivity">
-
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="italic"
+        android:typeface="monospace"
+        android:text="Username:"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:padding="3dp"
+        android:id="@+id/edtUsername"
+        android:background="@drawable/bg_gray_no_stroke"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:textStyle="italic"
+        android:textSize="16dp"
+        android:textColor="#000"
+        android:layout_marginTop="15dp"
+        android:typeface="monospace"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:padding="3dp"
+        android:background="@drawable/bg_gray_no_stroke"
+        android:id="@+id/edtPassword"
+        />
+<LinearLayout
+    android:layout_marginTop="15dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:text="Sign Up"
+        android:textColor="@drawable/text_background"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:id="@+id/btnDangky"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:id="@+id/btnDangNhap"
+        android:textStyle="bold"
+        android:textColor="@drawable/text_background"
+        android:background="@drawable/button_background"
+        android:textSize="16dp"/>
+</LinearLayout>
+</LinearLayout>
