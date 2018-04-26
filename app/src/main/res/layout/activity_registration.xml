@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:id="@+id/scrollView"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/ImgIcon"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your avatar:"
+                android:layout_marginTop="15dp"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                >
+                <ImageView
+                    android:id="@+id/ImgAvatar"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/ic_launcher"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="Choose"
+                    android:id="@+id/btnChoose"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16dp"
+                    android:background="@drawable/button_background"
+                    android:textColor="@drawable/text_background"
+                    />
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Username:"
+                android:textSize="16dp"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:padding="3dp"
+                android:id="@+id/edtUsernameR"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_gray_no_stroke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Password:"
+                android:textSize="16dp"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:padding="3dp"
+                android:id="@+id/edtPasswordR"
+                android:inputType="textPassword"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_gray_no_stroke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Confirm password:"
+                android:textSize="16dp"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:padding="3dp"
+                android:id="@+id/edtConfirmPasswordR"
+                android:layout_marginTop="5dp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_gray_no_stroke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="E-mail:"
 
-</android.support.constraint.ConstraintLayout>
+                android:textSize="16dp"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:id="@+id/edtEmailR"
+                android:padding="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_gray_no_stroke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Phone number:"
+                android:textSize="16dp"
+                android:textColor="#000"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:padding="3dp"
+                android:id="@+id/edtPhoneNumberR"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_gray_no_stroke"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Sign up"
+                android:id="@+id/btnSignUp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

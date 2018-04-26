@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "690054483896",
+    "firebase_url": "https://lustrous-stone-183307.firebaseio.com",
+    "project_id": "lustrous-stone-183307",
+    "storage_bucket": "lustrous-stone-183307.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690054483896:android:3ccb331485a110ff",
+        "android_client_info": {
+          "package_name": "nhom1.nhom1.bookshelf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "690054483896-re9c5i6c3ir2mf6bp7ddqjfi1j7v6ut7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nhom1.nhom1.bookshelf",
+            "certificate_hash": "c9d3f4af54ed01ed638bd3965d9473bd451d36ef"
+          }
+        },
+        {
+          "client_id": "690054483896-ldlicdeqsjag3nujdpca6ooke8q63e9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmU5XCKOV6RjzN0tNWi74QY1XZRG5sLYw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690054483896-ldlicdeqsjag3nujdpca6ooke8q63e9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
