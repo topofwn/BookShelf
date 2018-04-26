@@ -1,5 +1,6 @@
 package nhom1.nhom1.bookshelf;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,6 +59,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                 Log.w(TAG, "Error adding document", e);
                             }
                         });
+                Intent i = new Intent(RegistrationActivity.this,HomeActivity.class);
+                startActivity(i);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("users",user);
             }
         });
     }

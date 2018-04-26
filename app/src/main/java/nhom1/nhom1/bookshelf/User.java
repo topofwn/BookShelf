@@ -1,6 +1,8 @@
 package nhom1.nhom1.bookshelf;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     public String name;
     public String pass;
     public String confirm_pass;
