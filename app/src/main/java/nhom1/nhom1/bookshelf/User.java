@@ -1,5 +1,8 @@
 package nhom1.nhom1.bookshelf;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -8,7 +11,7 @@ public class User implements Serializable {
     public String confirm_pass;
     public String email;
     public String phone;
-    public String avatar;
+    public Bitmap avatar;
 
     public String getEmail() {
         return email;
@@ -30,7 +33,7 @@ public class User implements Serializable {
         return pass;
     }
 
-    public String getAvatar() {
+    public Bitmap getAvatar() {
         return avatar;
     }
 }
