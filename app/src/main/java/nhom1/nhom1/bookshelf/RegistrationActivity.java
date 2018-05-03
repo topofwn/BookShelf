@@ -3,6 +3,7 @@ package nhom1.nhom1.bookshelf;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         ScrollView sc=(ScrollView)findViewById(R.id.scrollView);
-        db = FirebaseFirestore.getInstance();
+       // db = FirebaseFirestore.getInstance();
         user = new User();
         ImageView imgIcon = (ImageView)findViewById(R.id.ImgIcon);
         imgAvatar = (ImageView)findViewById(R.id.ImgAvatar);
@@ -57,35 +58,24 @@ public class RegistrationActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 user.name = edtName.getText().toString();
                 user.pass = edtPass.getText().toString();
                 user.confirm_pass = edtConfirm.getText().toString();
                 user.email = edtEmail.getText().toString();
                 user.phone = edtPhone.getText().toString();
+                user.key =  ServiceUtils.convertSha256(user.name+user.pass+user.confirm_pass+user.email+user.phone);
+                FirebaseUtils.ReadData(user);
+                Login(user.key);
 
-                db.collection("Users")
-                        .add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error adding document", e);
-                            }
-                        });
-                Intent i = new Intent(RegistrationActivity.this,HomeActivity.class);
-                startActivity(i);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("users",user);
+
             }
         });
     }
-
+private void Login(String key){
+    Intent i = new Intent(RegistrationActivity.this,HomeActivity.class);
+   i.putExtra("key_access",key);
+    startActivity(i);
+}
     private void ChooseImage() {
         Intent i = new Intent();
         i.setType("image/*");

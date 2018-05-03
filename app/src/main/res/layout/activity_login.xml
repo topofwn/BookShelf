@@ -26,6 +26,7 @@
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:padding="3dp"
+        android:textColor="#000"
         android:id="@+id/edtUsername"
         android:background="@drawable/bg_gray_no_stroke"
         />
@@ -44,6 +45,8 @@
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:padding="3dp"
+        android:textColor="#000"
+        android:inputType="textPassword"
         android:background="@drawable/bg_gray_no_stroke"
         android:id="@+id/edtPassword"
         />
