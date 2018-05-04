@@ -91,7 +91,7 @@ private void Login(String key){
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),filePath);
                 imgAvatar.setImageBitmap(bitmap);
-                user.avatar = bitmap;
+                user.avatar = filePath;
             }  catch (IOException e) {
                 e.printStackTrace();
             }

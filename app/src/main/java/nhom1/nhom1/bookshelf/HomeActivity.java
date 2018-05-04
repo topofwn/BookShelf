@@ -3,6 +3,7 @@ package nhom1.nhom1.bookshelf;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -17,15 +18,21 @@ import android.widget.ImageView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.io.IOException;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     String drawTitle,title;
+    private FirebaseAuth mAuth;
+    public ImageView ava;
 
     private Toolbar mToolbar;
     @SuppressWarnings("deprecation")
@@ -35,18 +42,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_home);
         Intent intent = getIntent();
          String key = intent.getStringExtra("key_access");
-        ImageView ava = (ImageView) findViewById(R.id.smallAvatar);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-           db.collection("Users").whereEqualTo("key",key).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-               @Override
-               public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                   Bitmap pic =  queryDocumentSnapshots.getDocuments().get(avatar)
-               }
-           });
-
-
-
-
+         ava = (ImageView) findViewById(R.id.smallAvatar);
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//           db.collection("Users").whereEqualTo("key",key).get();
         mToolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(mToolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.Drawerlayout);
@@ -89,5 +87,50 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             startActivity(new Intent(HomeActivity.this,LoginActivity.class));
         }
         return false;
+    }
+    private void signOut() {
+        mAuth.signOut();
+        updateUI(null);
+    }
+    private void updateUI(FirebaseUser user) {
+        //hideProgressDialog();
+        if (user != null) {
+            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
+                    user.getEmail(), user.isEmailVerified()));
+            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+
+            findViewById(R.id.email_password_buttons).setVisibility(View.GONE);
+            findViewById(R.id.email_password_fields).setVisibility(View.GONE);
+            findViewById(R.id.signed_in_buttons).setVisibility(View.VISIBLE);
+
+            findViewById(R.id.verify_email_button).setEnabled(!user.isEmailVerified());
+        } else {
+            mStatusTextView.setText(R.string.signed_out);
+            mDetailTextView.setText(null);
+
+            findViewById(R.id.email_password_buttons).setVisibility(View.VISIBLE);
+            findViewById(R.id.email_password_fields).setVisibility(View.VISIBLE);
+            findViewById(R.id.signed_in_buttons).setVisibility(View.GONE);
+        }
+    }
+    public void Login() throws IOException {
+        User account = null;
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+
+            // Name, email address, and profile photo Url
+            account.name = user.getDisplayName();
+            account.email = user.getEmail();
+            account.avatar = user.getPhotoUrl();
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),account.avatar);
+            ava.setImageBitmap(bitmap);
+            // Check if user's email is verified
+            boolean emailVerified = user.isEmailVerified();
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getIdToken() instead.
+            String uid = user.getUid();
+        }
     }
 }

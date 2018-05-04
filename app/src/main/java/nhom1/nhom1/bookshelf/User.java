@@ -1,6 +1,7 @@
 package nhom1.nhom1.bookshelf;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 
 public class User {
@@ -10,7 +11,7 @@ public class User {
     public String email;
     public String phone;
     public String key;
-    public Bitmap avatar;
+    public Uri avatar;
 
     public String getEmail() {
         return email;
@@ -36,7 +37,7 @@ public class User {
         return key;
     }
 
-    public Bitmap getAvatar() {
+    public Uri getAvatar() {
         return avatar;
     }
 
