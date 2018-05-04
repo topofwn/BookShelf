@@ -1,6 +1,7 @@
 package nhom1.nhom1.bookshelf;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -12,6 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,6 +36,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = getIntent();
          String key = intent.getStringExtra("key_access");
         ImageView ava = (ImageView) findViewById(R.id.smallAvatar);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+           db.collection("Users").whereEqualTo("key",key).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+               @Override
+               public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                   Bitmap pic =  queryDocumentSnapshots.getDocuments().get(avatar)
+               }
+           });
+
+
+
+
         mToolbar = (Toolbar) findViewById(R.id.nav_toolbar);
         setSupportActionBar(mToolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.Drawerlayout);
