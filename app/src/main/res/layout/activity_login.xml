@@ -1,81 +1,239 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+    <!--android:padding="20dp"-->
+    <!--tools:context=".LoginActivity">-->
+    <!--<ImageView-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="70dp"-->
+        <!--android:src="@mipmap/ic_launcher"-->
+        <!--android:layout_gravity="center_horizontal"/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#000"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textStyle="italic"-->
+        <!--android:typeface="monospace"-->
+        <!--android:text="Username:"-->
+        <!--/>-->
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:padding="3dp"-->
+        <!--android:textColor="#000"-->
+        <!--android:id="@+id/edtUsername"-->
+        <!--android:background="@drawable/bg_gray_no_stroke"-->
+        <!--/>-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Password:"-->
+        <!--android:textStyle="italic"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textColor="#000"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:typeface="monospace"-->
+        <!--/>-->
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:padding="3dp"-->
+        <!--android:textColor="#000"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:background="@drawable/bg_gray_no_stroke"-->
+        <!--android:id="@+id/edtPassword"-->
+        <!--/>-->
+<!--<LinearLayout-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--&gt;-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:text="Sign Up"-->
+        <!--android:textColor="@drawable/text_background"-->
+        <!--android:textSize="16dp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:background="@drawable/button_background"-->
+        <!--android:id="@+id/btnDangky"-->
+        <!--/>-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Sign In"-->
+        <!--android:id="@+id/btnDangNhap"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@drawable/text_background"-->
+        <!--android:background="@drawable/button_background"-->
+        <!--android:textSize="16dp"/>-->
+<!--</LinearLayout>-->
+<!--</LinearLayout>-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_100"
     android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".LoginActivity">
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="italic"
-        android:typeface="monospace"
-        android:text="Username:"
-        />
-    <EditText
+   >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:padding="3dp"
-        android:textColor="#000"
-        android:id="@+id/edtUsername"
-        android:background="@drawable/bg_gray_no_stroke"
-        />
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password:"
-        android:textStyle="italic"
-        android:textSize="16dp"
-        android:textColor="#000"
-        android:layout_marginTop="15dp"
-        android:typeface="monospace"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:padding="3dp"
-        android:textColor="#000"
-        android:inputType="textPassword"
-        android:background="@drawable/bg_gray_no_stroke"
-        android:id="@+id/edtPassword"
-        />
-<LinearLayout
-    android:layout_marginTop="15dp"
-    android:layout_gravity="center"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:text="Sign Up"
-        android:textColor="@drawable/text_background"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:background="@drawable/button_background"
-        android:id="@+id/btnDangky"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:id="@+id/btnDangNhap"
-        android:textStyle="bold"
-        android:textColor="@drawable/text_background"
-        android:background="@drawable/button_background"
-        android:textSize="16dp"/>
-</LinearLayout>
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/icon"
+            style="@style/ThemeOverlay.FirebaseIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/common_google_signin_btn_icon_dark" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginBottom="@dimen/title_bottom_margin"
+            android:text="@string/emailpassword_title_text"
+            android:theme="@style/ThemeOverlay.MyTitleText" />
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/ThemeOverlay.MyTextDetail"
+            android:text="@string/signed_out" />
+
+        <TextView
+            android:id="@+id/detail"
+            style="@style/ThemeOverlay.MyTextDetail"
+            tools:text="Firebase User ID: 123456789abc" />
+
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/email_password_fields"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textSize="18dp"
+      android:text="Email:"
+      android:textStyle="bold"
+      android:textColor="@color/colorBlack"
+
+      />
+            <EditText
+                android:id="@+id/field_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:inputType="textEmailAddress" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="20dp"
+                android:text="Password:"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+
+                />
+            <EditText
+                android:id="@+id/field_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/email_password_buttons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/email_password_fields"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <Button
+                android:id="@+id/email_sign_in_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                android:text="@string/sign_in"
+                android:theme="@style/ThemeOverlay.MyDarkButton" />
+
+            <Button
+                android:id="@+id/email_create_account_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                android:text="@string/create_account"
+                android:theme="@style/ThemeOverlay.MyDarkButton" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/signed_in_buttons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:paddingRight="20dp"
+            android:visibility="gone"
+            android:weightSum="2.0">
+
+            <Button
+                android:id="@+id/sign_out_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                android:text="@string/sign_out"
+                android:theme="@style/ThemeOverlay.MyDarkButton" />
+
+            <Button
+                android:id="@+id/verify_email_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                android:text="@string/verify_email"
+                android:theme="@style/ThemeOverlay.MyDarkButton" />
+
+        </LinearLayout>
+
+
+
 </LinearLayout>
