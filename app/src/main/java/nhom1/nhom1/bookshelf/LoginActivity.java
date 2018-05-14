@@ -1,6 +1,8 @@
 package nhom1.nhom1.bookshelf;
 
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -53,8 +55,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private TextView mStatusTextView;
     private TextView mDetailTextView;
+    public ProgressDialog mProgressDialog;
     private EditText mEmailField;
     private EditText mPasswordField;
+    private TextView mComment;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -66,14 +70,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         // Views
+        mComment = (TextView) findViewById(R.id.comment);
         mStatusTextView = findViewById(R.id.status);
         mDetailTextView = findViewById(R.id.detail);
         mEmailField = findViewById(R.id.field_email);
         mPasswordField = findViewById(R.id.field_password);
 
         // Buttons
-        findViewById(R.id.btnDangNhap).setOnClickListener(this);
-        findViewById(R.id.btnDangky).setOnClickListener(this);
+        findViewById(R.id.email_sign_in_button).setOnClickListener(this);
+        findViewById(R.id.email_create_account_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.verify_email_button).setOnClickListener(this);
 
@@ -109,6 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -126,14 +132,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // [END create_user_with_email]
     }
 
-    private void signIn(String email, String password) {
+    private void signIn(String email, final String password) {
+
         Log.d(TAG, "signIn:" + email);
         if (!validateForm()) {
             return;
-        }
+       }
 
-       // showProgressDialog();
-
+        showProgressDialog();
+        final String pass = password;
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -143,6 +150,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            // chuyen qua home kem theo userID va email
+                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                            i.putExtra("email_login",user.getEmail());
+                            i.putExtra("password_login",pass);
+                            startActivity(i);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -156,7 +168,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (!task.isSuccessful()) {
                             mStatusTextView.setText(R.string.auth_failed);
                         }
-                    //    hideProgressDialog();
+                       hideProgressDialog();
                         // [END_EXCLUDE]
                     }
                 });
@@ -223,7 +235,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
                     user.getEmail(), user.isEmailVerified()));
             mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-
+            mComment.setVisibility(View.VISIBLE);
             findViewById(R.id.email_password_buttons).setVisibility(View.GONE);
             findViewById(R.id.email_password_fields).setVisibility(View.GONE);
             findViewById(R.id.signed_in_buttons).setVisibility(View.VISIBLE);
@@ -246,8 +258,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             createAccount(mEmailField.getText().toString(), mPasswordField.getText().toString());
         } else if (i == R.id.email_sign_in_button) {
             signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
-        }  else if (i == R.id.verify_email_button) {
+        } else if (i == R.id.sign_out_button) {
+            signOut();
+        } else if (i == R.id.verify_email_button) {
             sendEmailVerification();
+        }
+    }
+
+    private void signOut() {
+        mAuth.signOut();
+        updateUI(null);
+    }
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("LOADING...");
+            mProgressDialog.setIndeterminate(true);
         }
     }
 

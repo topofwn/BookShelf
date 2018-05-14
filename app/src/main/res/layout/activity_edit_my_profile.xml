@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity">
+    tools:context=".EditMyProfileActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         android:id="@+id/scrollView"
         >
         <LinearLayout
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Username:"
+                android:text="Name:"
                 android:textSize="16dp"
                 android:textColor="#000"
                 />
@@ -72,40 +72,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bg_gray_no_stroke"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Password:"
-                android:textSize="16dp"
-                android:textColor="#000"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:padding="3dp"
-                android:id="@+id/edtPasswordR"
-                android:inputType="textPassword"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/bg_gray_no_stroke"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Confirm password:"
-                android:textSize="16dp"
-                android:textColor="#000"
-                />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:padding="3dp"
-                android:id="@+id/edtConfirmPasswordR"
-                android:layout_marginTop="5dp"
-                android:inputType="textPassword"
-                android:background="@drawable/bg_gray_no_stroke"
-                />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -143,8 +110,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="Sign up"
-                android:id="@+id/btnSignUp"
+                android:padding="3dp"
+                android:text="Done"
+                android:id="@+id/btnDone"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_background"
+                android:textColor="@drawable/text_background"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:padding="3dp"
+                android:id="@+id/btnChangePassword"
+                android:text="Change Password"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button_background"
                 android:textColor="@drawable/text_background"

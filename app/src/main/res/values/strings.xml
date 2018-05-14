@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">BookShelf</string>
+    <string name="app_names">BookShelf</string>
     <string-array name="function">
         <item></item>
     </string-array>
-<string name="open">Open</string>
+    <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="app_name">Firebase Authentication</string>
 
