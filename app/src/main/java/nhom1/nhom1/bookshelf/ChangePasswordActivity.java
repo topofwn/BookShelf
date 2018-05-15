@@ -27,6 +27,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     if (!s1.equals(s3)){
                         Intent i = new Intent();
                         i.putExtra("change_pass",s2);
+                        finish();
 
                     }
                 }

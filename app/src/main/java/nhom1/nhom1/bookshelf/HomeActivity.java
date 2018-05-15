@@ -36,71 +36,46 @@ import org.w3c.dom.Text;
 
 import java.io.IOException;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle drawerToggle;
     String drawTitle,title;
-    private FirebaseAuth mAuth;
     private TextView textName;
     public ImageView ava;
     private LinearLayout rContent;
+    private Button btnHome, btnMyShelf, btnMyCart, btnLogOut;
     private FirebaseUser user;
     private User account;
     private String email,password;
-
     private Toolbar mToolbar;
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Intent intent = getIntent();
-         email = intent.getStringExtra("email_login");
-         password = intent.getStringExtra("password_login");
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                          user = mAuth.getCurrentUser();
-                          account.id = user.getUid();
-                          account.email = user.getEmail();
-
-                            // chuyen qua home kem theo userID va email
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-
-
-                        }
-
-
-                    }
-                });
-
-         ava = (ImageView) findViewById(R.id.smallAvatar);
-        mToolbar = (Toolbar) findViewById(R.id.nav_toolbar);
-        textName = (TextView) findViewById(R.id.txtDisplayName);
-        setSupportActionBar(mToolbar);
-        if(account.name == null ){
-            textName.setText("Unnamed");
-        }else{
-            textName.setText(account.name);
-        }
-        if (account.avatar != null)
-        {
-            Glide.with(this).load(account.avatar).apply(RequestOptions.circleCropTransform()).into(ava);
-        }
-
         drawerLayout = (DrawerLayout) findViewById(R.id.Drawerlayout);
+        ava =   findViewById(R.id.smallAvatar);
+        textName = (TextView) findViewById(R.id.txtDisplayName);
+        drawerToggle = new ActionBarDrawerToggle(HomeActivity.this, drawerLayout, R.string.open, R.string.close);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         title = drawTitle = (String) getTitle();
-        drawerToggle = new ActionBarDrawerToggle(HomeActivity.this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    //    ava.setImageBitmap(inform.avatar);
+        if(user.getDisplayName() == null){
+            textName.setText("Random");
+        }else if (user.getDisplayName() != null){
+            textName.setText(user.getDisplayName());
+        }
+        if (user.getPhotoUrl() != null) {
+            Glide.with(this).load(user.getPhotoUrl()).apply(RequestOptions.circleCropTransform()).into(ava);
+        }
     }
 
     @Override
@@ -108,41 +83,40 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (drawerToggle.onOptionsItemSelected(item)){
             return true;
         }
-        Button btnHome = (Button)findViewById(R.id.HomePage);
-        Button btnMyCart = (Button)findViewById(R.id.myCart);
-        Button btnMyShelf = (Button)findViewById(R.id.myShelf);
-        Button btnLogOut = (Button)findViewById(R.id.logout);
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-            }
-        });
-
         return super.onOptionsItemSelected(item);
-    }
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.HomePage){
-            Intent i = new Intent(HomeActivity.this, MyProfileActivity.class);
-            i.putExtra("user",account);
-            i.putExtra("user_pass",password);
-            startActivity(i);
-        }else if (id == R.id.myShelf){
-            //startActivity(new Intent(HomeActivity.this, MyShelfActivity.class));
-        }else if (id == R.id.myCart){
-            //startActivity(new Intent(HomeActivity.this, MyCartActivity.class));
-        }else if (id == R.id.logout)
-        {
-           // startActivity(new Intent(HomeActivity.this,LoginActivity.class));
-        }
-        return false;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         rContent = findViewById(R.id.randomContent);
+        Intent intent = getIntent();
+        password = intent.getStringExtra("password_login");
+        findViewById(R.id.Profile).setOnClickListener(this);
+        findViewById(R.id.myCart).setOnClickListener(this);
+        findViewById(R.id.myShelf).setOnClickListener(this);
+        findViewById(R.id.Logout).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+    int id = v.getId();
+    if (id == R.id.Profile){
+        Intent i = new Intent(HomeActivity.this, MyProfileActivity.class);
+        startActivity(i);
+    }else if (id == R.id.myShelf){
+        //startActivity(new Intent(HomeActivity.this, MyShelfActivity.class));
+    }else if (id == R.id.myCart){
+        //startActivity(new Intent(HomeActivity.this, MyCartActivity.class));
+    }else if (id == R.id.Logout)
+    {
+        FirebaseAuth.getInstance().signOut();
+         startActivity(new Intent(HomeActivity.this,LoginActivity.class));
+    }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
     }
 }

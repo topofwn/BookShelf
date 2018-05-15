@@ -2,6 +2,7 @@ package nhom1.nhom1.bookshelf;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,50 +10,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-//    private FirebaseAuth mAuth;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        mAuth = FirebaseAuth.getInstance();
-//        setContentView(R.layout.activity_login);
-//        EditText edtpass = (EditText) findViewById(R.id.edtPassword);
-//       EditText edtname = (EditText)findViewById(R.id.edtUsername);
-//       Button btnSI = (Button)findViewById(R.id.btnDangNhap);
-//        Button btnSU = (Button) findViewById(R.id.btnDangky);
-//        btnSU.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(LoginActivity.this,RegistrationActivity.class));
-//            }
-//        });
-//        btnSI.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(LoginActivity.this,HomeActivity.class));
-//            }
-//        });
-//    }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//
-//    }
-//}
+
 
     private static final String TAG = "EmailPassword";
-
+    private ImageView Icon;
     private TextView mStatusTextView;
     private TextView mDetailTextView;
     public ProgressDialog mProgressDialog;
@@ -75,13 +51,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mDetailTextView = findViewById(R.id.detail);
         mEmailField = findViewById(R.id.field_email);
         mPasswordField = findViewById(R.id.field_password);
-
+        LinearLayout clickLayout = (LinearLayout) findViewById(R.id.ClickLayout);
+         Icon = findViewById(R.id.icon);
         // Buttons
         findViewById(R.id.email_sign_in_button).setOnClickListener(this);
         findViewById(R.id.email_create_account_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.verify_email_button).setOnClickListener(this);
-
+        Glide.with(this).load(R.drawable.icon_bookshelf_new).apply(RequestOptions.centerInsideTransform()).into(Icon);
+        clickLayout.setOnClickListener(this);
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
@@ -93,7 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+
     }
     // [END on_start_check_user]
 
@@ -152,10 +130,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FirebaseUser user = mAuth.getCurrentUser();
                             // chuyen qua home kem theo userID va email
                             Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                            i.putExtra("email_login",user.getEmail());
                             i.putExtra("password_login",pass);
                             startActivity(i);
-                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -263,6 +239,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else if (i == R.id.verify_email_button) {
             sendEmailVerification();
         }
+        else if (i == R.id.ClickLayout){
+         //  hide_keyboard();
+        }
     }
 
     private void signOut() {
@@ -281,6 +260,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mProgressDialog.setMessage("LOADING...");
             mProgressDialog.setIndeterminate(true);
         }
+    }
+    private void hide_keyboard() {
+        View view = this.getCurrentFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
     }
 
 }

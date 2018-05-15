@@ -14,8 +14,8 @@
         >
         <ImageButton
             android:id="@+id/btnImgBackP"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="center_vertical"
             android:background="#000"
             android:layout_marginLeft="10dp"
@@ -44,6 +44,22 @@
         android:id="@+id/AvatarLayoutP"
         >
         <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Delete"
+            android:background="@drawable/button_background"
+            android:textColor="@drawable/text_background"
+            android:textAllCaps="false"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <Button
             android:id="@+id/btnEditP"
             android:layout_width="wrap_content"
             android:layout_height="26dp"
@@ -52,6 +68,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
+            android:layout_marginTop="5dp"
             android:padding="5dp"
             android:text="Edit"
             android:background="@drawable/button_background"
@@ -91,36 +108,11 @@
         android:orientation="vertical"
         android:background="#a4a3a3"
         android:layout_below="@+id/textName"
-        android:weightSum="3"
+        android:weightSum="2"
         android:layout_margin="20dp"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="15dp"
-            android:id="@+id/PhoneNumberLayoutPE"
-            android:background="#ead4d1d1"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone number"
-                android:textColor="@color/colorBlack"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/txtPhonePE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:textSize="16dp"
-                android:layout_marginTop="5dp"
-                android:text="(+84)123 - 546 - 789"
-                />
-        </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
@@ -149,35 +141,7 @@
                 android:text="anna.lee@gmail.com"
                 />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:padding="15dp"
-            android:layout_marginTop="1dp"
-            android:id="@+id/PasswordLayoutPE"
-            android:background="#ead4d1d1"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="@color/colorBlack"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/txtPasswordPE"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:textSize="16dp"
-                android:text="Drblue86"
-                android:layout_marginTop="5dp"
-                android:inputType="textPassword"
-                />
-        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

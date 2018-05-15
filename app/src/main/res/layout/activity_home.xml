@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-<include layout="@layout/toolbar_nav" android:layout_width="match_parent" android:layout_height="wrap_content"></include>
+<!--<include layout="@layout/toolbar_nav"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"></include>-->
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,11 +25,84 @@
      <android.support.design.widget.NavigationView
          android:layout_width="match_parent"
          android:layout_height="match_parent"
-         app:menu="@menu/nav_item"
          android:background="#ffff"
          android:layout_gravity="start"
-         app:headerLayout="@layout/navigation_header"
-         ></android.support.design.widget.NavigationView>
+         android:fitsSystemWindows="true"
+         >
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="100dp"
+             android:gravity="left"
+             android:background="#bbb"
+             android:padding="10dp"
+           >
+             <ImageView
+                 android:layout_width="80dp"
+                 android:layout_height="80dp"
+                 android:background="@drawable/bg_profile_avatar"
+                 android:id="@+id/smallAvatar"
+                 />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_centerVertical="true"
+                 android:layout_marginLeft="15dp"
+                 android:id="@+id/txtDisplayName"
+                 android:text="sdfasdfsdfsefdsgg"
+                 android:textSize="16dp"
+                 android:textColor="@color/colorBlack"
+                 android:textStyle="bold"
+                 android:layout_marginStart="15dp"
+                 android:layout_toEndOf="@+id/smallAvatar"
+                 android:layout_toRightOf="@+id/smallAvatar" />
+         </RelativeLayout>
+     <Button
+         android:layout_width="match_parent"
+         android:layout_height="48dp"
+         android:text="Profile"
+         android:textStyle="bold"
+         android:id="@+id/Profile"
+         android:textSize="14dp"
+         android:gravity="center_vertical"
+
+         />
+         <Button
+             android:id="@+id/myShelf"
+             android:layout_width="match_parent"
+             android:layout_height="48dp"
+             android:text="My Shelf"
+             android:textStyle="bold"
+             android:textSize="14dp"
+             android:gravity="center_vertical"
+
+             />
+         <Button
+             android:id="@+id/myCart"
+             android:layout_width="match_parent"
+             android:layout_height="48dp"
+             android:text="My Cart"
+             android:textStyle="bold"
+             android:textSize="14dp"
+             android:gravity="center_vertical"
+
+             />
+         <Button
+             android:id="@+id/Logout"
+             android:layout_width="match_parent"
+             android:layout_height="48dp"
+             android:text="Log out"
+             android:textStyle="bold"
+             android:textSize="14dp"
+             android:gravity="center_vertical"
+
+             />
+         </LinearLayout>
+     </android.support.design.widget.NavigationView>
 
 
 
