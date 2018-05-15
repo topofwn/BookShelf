@@ -35,14 +35,14 @@
              android:orientation="vertical">
          <RelativeLayout
              android:layout_width="match_parent"
-             android:layout_height="100dp"
+             android:layout_height="150dp"
              android:gravity="left"
              android:background="#bbb"
              android:padding="10dp"
            >
              <ImageView
-                 android:layout_width="80dp"
-                 android:layout_height="80dp"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
                  android:background="@drawable/bg_profile_avatar"
                  android:id="@+id/smallAvatar"
                  />
@@ -54,7 +54,7 @@
                  android:layout_marginLeft="15dp"
                  android:id="@+id/txtDisplayName"
                  android:text="sdfasdfsdfsefdsgg"
-                 android:textSize="16dp"
+                 android:textSize="23dp"
                  android:textColor="@color/colorBlack"
                  android:textStyle="bold"
                  android:layout_marginStart="15dp"

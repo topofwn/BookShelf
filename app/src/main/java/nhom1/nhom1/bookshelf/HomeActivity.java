@@ -54,9 +54,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        drawerLayout = (DrawerLayout) findViewById(R.id.Drawerlayout);
+        drawerLayout = findViewById(R.id.Drawerlayout);
         ava =   findViewById(R.id.smallAvatar);
-        textName = (TextView) findViewById(R.id.txtDisplayName);
+        textName =  findViewById(R.id.txtDisplayName);
         drawerToggle = new ActionBarDrawerToggle(HomeActivity.this, drawerLayout, R.string.open, R.string.close);
     }
 
