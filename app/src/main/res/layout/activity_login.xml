@@ -29,7 +29,9 @@
             android:id="@+id/icon"
             style="@style/ThemeOverlay.FirebaseIcon"
             android:layout_width="80dp"
-            android:layout_height="80dp" />
+            android:layout_height="80dp"
+            android:src="@drawable/icon_bookshelf_new"
+            />
 
         <TextView
             android:id="@+id/title_text"

@@ -102,14 +102,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public void onClick(View v) {
     int id = v.getId();
     if (id == R.id.Profile){
+        drawerLayout.closeDrawers();
         Intent i = new Intent(HomeActivity.this, MyProfileActivity.class);
         startActivity(i);
     }else if (id == R.id.myShelf){
+        drawerLayout.closeDrawers();
         //startActivity(new Intent(HomeActivity.this, MyShelfActivity.class));
     }else if (id == R.id.myCart){
+        drawerLayout.closeDrawers();
         //startActivity(new Intent(HomeActivity.this, MyCartActivity.class));
     }else if (id == R.id.Logout)
     {
+        drawerLayout.closeDrawers();
         FirebaseAuth.getInstance().signOut();
          startActivity(new Intent(HomeActivity.this,LoginActivity.class));
     }

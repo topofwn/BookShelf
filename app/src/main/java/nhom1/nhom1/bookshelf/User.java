@@ -10,6 +10,8 @@ public class User implements Serializable{
     public String name;
 
     public String email;
+    public int District;
+    public byte Area;
     public String phone;
     public String id;
     public Uri avatar;
@@ -27,8 +29,6 @@ public class User implements Serializable{
     public String getName() {
         return name;
     }
-
-
 
     public String getId() {
         return id;
