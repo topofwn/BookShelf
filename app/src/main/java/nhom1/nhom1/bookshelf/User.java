@@ -7,36 +7,22 @@ import java.io.Serializable;
 
 
 public class User implements Serializable{
-    public String name;
-
-    public String email;
-    public int District;
-    public byte Area;
     public String phone;
     public String id;
-    public Uri avatar;
+    public String address;
 
-    public String getEmail() {
-        return email;
+
+    public String getAddress() {
+        return address;
     }
-
-
-
     public String getPhone() {
         return phone;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getId() {
         return id;
     }
 
-    public Uri getAvatar() {
-        return avatar;
-    }
 
 
     }

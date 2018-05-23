@@ -34,8 +34,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChangePasswordActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".MyCartActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".MyCartActivity" />
+        <activity android:name=".AddBookActivity"></activity>
     </application>
 
 </manifest>

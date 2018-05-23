@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:id="@+id/imageView_book_photo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/textViewBookName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Book Name"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView_book_photo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"
+        android:id="@+id/textViewBookName"
+
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
+        android:textSize="16dp"
+        android:text="Author:"
+        app:layout_constraintLeft_toRightOf="@+id/imageView_book_photo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBookName"
+        android:id="@+id/textViewAuthor"
+        android:layout_margin="5dp" />
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:textColor="@color/colorBlack"
+    android:id="@+id/textAuthorName"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textViewBookName"
+    app:layout_constraintLeft_toRightOf="@+id/textViewAuthor"
+    android:textSize="16dp"
+    android:layout_marginLeft="10dp"
+    android:text="Ichikawa Takuji"
+    />
+
+</android.support.constraint.ConstraintLayout>

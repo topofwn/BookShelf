@@ -5,5 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nhom1.nhom1.bookshelf.MyCartActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/fieldInfo"
+
+        >
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="25dp"
+       android:id="@+id/fieldUp"
+       android:background="#f30000"
+       >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Sale"
+           android:textColor="@color/colorBlack"
+           android:layout_centerInParent="true"
+           />
+   </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:id="@+id/fieldDown"
+            android:layout_below="@+id/fieldUp"
+            android:background="#05e109"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lease"
+                android:textColor="@color/colorBlack"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/fieldInfo"
+        >
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
